@@ -1,0 +1,21 @@
+version: '3'
+services:
+    my-redis-server:
+        image: redis
+        expose:
+            - '6379'
+        volumes:
+            - ./redis-data:/data
+
+    visitor-app:
+        build:
+            dockerfile: Dockerfile
+            context: ./
+        ports:
+            - '9999:8888'
+        depends_on: 
+            - my-redis-server
+        volumes:
+            - ./src:/usr/visitorapp/src
+        environment:
+            SERVERPORT: 8888
