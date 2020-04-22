@@ -22,3 +22,16 @@ To start a container
 ```
 /visitorapp> docker run -it -p 9999:9999 --network visitor-network visitorapp
 ```
+
+
+## Instructions to run the app in using docker-compose
+
+To start all containers
+```
+/visitorapp> docker-compose up --build
+```
+
+To stop all containers
+```
+/visitorapp> docker-compose down
+```
